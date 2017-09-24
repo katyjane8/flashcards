@@ -3,6 +3,7 @@ require 'minitest/pride'
 require './lib/cards'
 require './lib/guesses'
 require './lib/deck'
+require './lib/round'
 
 class CardTest < Minitest::Test
   def test_card_exists
@@ -70,6 +71,24 @@ class CardTest < Minitest::Test
     assert_equal 3, deck.count
   end
 
-  
+  def test_a_round_of_guesses
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau")
+    card_2 = Card.new("Approximately how many miles are in one astronomical unit?", "93,000,000")
+    deck = Deck.new([card_1, card_2])
+    round = Round.new(deck)
+
+    assert_instance_of Deck, round.deck
+    assert_equal [], round.guesses
+  end
+
+  def test_current_card
+    skip
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau")
+    card_2 = Card.new("Approximately how many miles are in one astronomical unit?", "93,000,000")
+    deck = Deck.new([card_1, card_2])
+    round = Round.new(deck)
+
+    assert_equal Card, round.current_card
+  end
 
 end
