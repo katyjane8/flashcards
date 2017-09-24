@@ -23,6 +23,7 @@ class CardTest < Minitest::Test
 
   def test_guess_from_card
     card = Card.new("What is the capital of Alaska", "Juneau")
-    
+    guess = Guess.new("Juneau", card)
+
   end
 end
