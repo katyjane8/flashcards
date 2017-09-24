@@ -10,4 +10,10 @@ class Guess
     true
   end
 
+  def feedback
+    if correct? == true
+      feedback = "Correct!"
+    end 
+  end
+
 end

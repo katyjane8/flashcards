@@ -41,4 +41,14 @@ class CardTest < Minitest::Test
 
     assert_equal true, guess.correct?
   end
+
+  def test_that_guess_can_issue_feedback
+    card = Card.new("What is the capital of Alaska", "Juneau")
+    guess = Guess.new("Juneau", card)
+
+    assert_equal "Correct!", guess.feedback
+  end
+
+  
+
 end
