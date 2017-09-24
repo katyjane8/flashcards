@@ -1,6 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/flashcards'
+require './lib/cards'
+require './lib/guesses'
 
 class CardTest < Minitest::Test
   def test_card_exists
@@ -25,5 +26,19 @@ class CardTest < Minitest::Test
     card = Card.new("What is the capital of Alaska", "Juneau")
     guess = Guess.new("Juneau", card)
 
+    assert_instance_of Card, guess.card
+  end
+  def test_response_from_guess
+    card = Card.new("What is the capital of Alaska", "Juneau")
+    guess = Guess.new("Juneau", card)
+
+    assert_equal "Juneau", guess.response
+  end
+
+  def test_that_guess_is_correct
+    card = Card.new("What is the capital of Alaska", "Juneau")
+    guess = Guess.new("Juneau", card)
+
+    assert_equal true, guess.correct?
   end
 end
