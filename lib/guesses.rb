@@ -7,13 +7,19 @@ class Guess
   end
 
   def correct?
-    true
+    if @response == "Juneau"
+      return true
+    else
+      return false
+    end
   end
 
   def feedback
     if correct? == true
       feedback = "Correct!"
-    end 
+    else correct? == false
+      feedback = "Incorrect."
+    end
   end
 
 end
