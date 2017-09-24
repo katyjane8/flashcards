@@ -2,6 +2,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/cards'
 require './lib/guesses'
+require './lib/deck'
 
 class CardTest < Minitest::Test
   def test_card_exists
@@ -68,5 +69,7 @@ class CardTest < Minitest::Test
     assert_equal [card_1, card_2, card_3], deck.cards
     assert_equal 3, deck.count
   end
+
+  
 
 end
