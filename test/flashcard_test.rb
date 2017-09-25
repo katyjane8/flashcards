@@ -96,7 +96,10 @@ class CardTest < Minitest::Test
     deck = Deck.new([card_1, card_2])
     round = Round.new(deck)
 
-    assert_equal Guess, round.record_guess("Juneau")
+    assert_instance_of Guess, round.record_guess("Juneau")
+    assert_equal 1, round.guesses.count
   end
+
+
 
 end
