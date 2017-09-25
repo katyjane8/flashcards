@@ -82,13 +82,21 @@ class CardTest < Minitest::Test
   end
 
   def test_current_card
-    skip
     card_1 = Card.new("What is the capital of Alaska?", "Juneau")
     card_2 = Card.new("Approximately how many miles are in one astronomical unit?", "93,000,000")
     deck = Deck.new([card_1, card_2])
     round = Round.new(deck)
 
-    assert_equal Card, round.current_card
+    assert_equal card_1, round.current_card
+  end
+
+  def test_it_can_record_guesses
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau")
+    card_2 = Card.new("Approximately how many miles are in one astronomical unit?", "93,000,000")
+    deck = Deck.new([card_1, card_2])
+    round = Round.new(deck)
+
+    assert_equal Guess, round.record_guess("Juneau")
   end
 
 end
