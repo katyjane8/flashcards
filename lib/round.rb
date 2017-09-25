@@ -22,4 +22,14 @@ class Round
     guesses.last
   end
 
+  def next_card
+    if guesses.correct?
+      @count += 1
+    else !guesses.correct?
+      deck.cards.push()
+  end
+
+  def number_correct
+  end
+
 end
