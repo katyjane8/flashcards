@@ -41,6 +41,10 @@ class Round
     @current +=1
   end
 
+  def percent_correct
+    (@number_correct.to_f / deck.cards.length * 100).to_i
+  end
+
 end
 
 

@@ -143,5 +143,16 @@ class CardTest < Minitest::Test
     assert_equal "Incorrect.", round.guesses.last.feedback
   end
 
+  def test_number_and_percent_correct_for_round
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau")
+    card_2 = Card.new("Approximately how many miles are in one astronomical unit?", "93,000,000")
+    deck = Deck.new([card_1, card_2])
+    round = Round.new(deck)
+    round.record_guess("Juneau")
+
+    assert_equal 1, round.number_correct
+    assert_equal 50, round.percent_correct
+  end
+
 
 end
