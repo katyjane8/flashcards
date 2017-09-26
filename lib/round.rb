@@ -23,12 +23,14 @@ class Round
     guesses.last
   end
 
+  def number_correct
+    if guesses.last.correct?
+      @number_correct += 1
+    else
+      @number_correct
+    end
+  end
 end
-# if guess.correct?
-#   @number_correct += 1
-# else
-#   @number_correct
-# end
 
 
 # require 'pry';binding.pry
