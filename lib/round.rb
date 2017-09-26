@@ -30,6 +30,17 @@ class Round
       @number_correct
     end
   end
+
+  def next_card
+    if guesses.last.correct?
+      @number_correct += 1
+    else
+      @number_correct
+      deck.cards.push(deck.cards[@current])
+    end
+    @current +=1
+  end
+
 end
 
 
