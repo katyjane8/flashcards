@@ -1,35 +1,34 @@
 require_relative 'deck'
 require_relative 'guesses'
+require_relative 'cards'
 
 class Round
-  attr_reader :deck, :guesses
-  attr_accessor :index
+  attr_reader :deck, :guesses, :number_correct
+  attr_accessor :current
 
   def initialize(deck)
     @deck = deck
     @guesses = []
-    @index = 0
-    @count = 0
+    @current = 0
+    @number_correct = 0
   end
 
   def current_card
-    deck.cards[index]
+    deck.cards[current]
   end
 
   def record_guess(response)
     guesses << Guess.new(response, current_card)
-    @index += 1
+    @current += 1
     guesses.last
   end
 
-  def next_card
-    if guesses.correct?
-      @count += 1
-    else !guesses.correct?
-      deck.cards.push()
-  end
-
-  def number_correct
-  end
-
 end
+# if guess.correct?
+#   @number_correct += 1
+# else
+#   @number_correct
+# end
+
+
+# require 'pry';binding.pry

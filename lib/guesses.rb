@@ -1,5 +1,5 @@
 class Guess
-  attr_reader :card, :response
+  attr_reader :card, :response, :feedback
 
   def initialize(response, card)
     @response = response
@@ -7,18 +7,14 @@ class Guess
   end
 
   def correct?
-    if @response == "Juneau"
-      return true
-    else
-      return false
-    end
+    @response == card.answer
   end
 
   def feedback
-    if correct? == true
-      feedback = "Correct!"
-    else correct? == false
-      feedback = "Incorrect."
+    if correct?
+      "Correct!"
+    else
+      "Incorrect."
     end
   end
 
