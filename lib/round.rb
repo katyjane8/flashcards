@@ -46,33 +46,17 @@ class Round
   end
 
   def start
-    puts "Welcome! You're playing with 4 cards."
-    puts "This is card number 1 out of 4."
-    puts "Question: What is 5 + 5?"
+    puts "Welcome! You're playing with #{deck.cards.count} cards."
+    deck.cards.each do |card|
+    puts "This is card number #{current + 1} out of #{deck.cards.count}."
+    puts "Question: #{card.question}"
     response = gets.chomp.downcase
-      if response == 10
-        puts "Correct!"
-      else
-        puts "Try again!"
-      end
-    puts "This is card number 2 out of 4."
-    puts "Question: What is Rachel's favorite animal?"
-    response = gets.chomp.downcase
-      if response == "red panda"
-        puts "Correct!"
-      else
-        puts "Incorrect."
-      end
-    puts "This is card number 3 out of 4."
-    puts "Question: What is Mike's middle name?"
-    response = gets.chomp.downcase
-      if response == "nobody knows"
-        puts "Correct!"
-      else
-        puts "Incorrect."
-      end
+      record_guess(response)
+      puts "#{guesses.last.feedback}"
+      next_card
+    end
     puts "****** Game over! ******"
-    puts "You had 3 correct guesses out of 4 for a score of 75%."
+    puts "You had #{number_correct} correct answers out of #{deck.count} for a score of #{percent_correct}%"
   end
 
 end
