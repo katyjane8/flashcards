@@ -9,7 +9,7 @@ class Guess
   end
 
   def correct?
-    response == card.answer
+    @response == card.answer
   end
 
   def feedback
