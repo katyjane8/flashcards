@@ -1,6 +1,6 @@
-require './lib/deck'
+require 'colorize'
 require './lib/guesses'
-require './lib/card'
+require './lib/deck'
 require 'pry'
 
 class Round
@@ -18,22 +18,23 @@ class Round
     deck.cards[current]
   end
 
-  def record_guess(attempt)
-    guesses << Guess.new(attempt, current_card)
+  def record_guess(response)
+    guesses << Guess.new(response, current_card)
     @current += 1
     guesses.last
   end
 
   def number_correct
-    if guesses.last.correct?
+    if guesses.correct?
       @number_correct += 1
     else
       @number_correct
+      binding.pry
     end
   end
 
   def next_card
-    if guesses.last.correct?
+    if guesses.first.correct?
       @number_correct += 1
     else
       @number_correct
@@ -48,10 +49,11 @@ class Round
 
   def start
     puts "Welcome! You're playing with #{deck.count} cards."
+    puts ("-"*60).cyan
     deck.cards.each do |card|
-    puts "This is card number #{current + 1} out of #{deck.count}."
-    puts "Question: #{card.question}"
-    response = gets.chomp.downcase
+    puts "This is card number #{current} out of #{deck.count}."
+    puts "Question: #{current_card.question}"
+    response = gets.chomp
       record_guess(response)
       puts "#{guesses.last.feedback}"
       next_card

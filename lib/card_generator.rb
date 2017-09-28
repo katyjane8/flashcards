@@ -1,13 +1,17 @@
-class CardGenerator
+require 'pry'
 
-  def initialize(filename)
-    @filename = filename
+class CardGenerator
+  attr_reader :cards
+
+  def initialize(filename=nil)
+    @cards = []
+    runner(filename)
   end
 
-  def runner
-    File.open(@filename).readlines.map do |line|
-      question, answer = line.chomp.split(",")
-      Card.new(question, answer)
+  def runner(filename)
+    File.foreach filename do |line|
+      card = line.chomp.split(",")
+      cards << Card.new(card[0], card[1])
     end
   end
 end
