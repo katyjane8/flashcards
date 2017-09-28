@@ -1,0 +1,5 @@
+What is 5 + 5?,10
+What is Rachel's favorite animal?,red panda
+Who is Sal's favorite singer?,Taylor Swift
+Who is Ali's favorite singer?,Justin Bieber
+What cardboard cutout lives at Turing?,Justin Bieber
