@@ -1,8 +1,10 @@
+require 'pry'
+
 class Guess
   attr_reader :card, :response, :feedback
 
   def initialize(response, card)
-    @response = response.downcase
+    @response = response
     @card = card
   end
 

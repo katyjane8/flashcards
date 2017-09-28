@@ -1,8 +1,8 @@
 class Card
   attr_reader :question, :answer
 
-  def initialize(question=nil, answer=nil)
+  def initialize(question, answer)
     @question = question
-    @answer = answer.downcase
+    @answer = answer
   end
 end

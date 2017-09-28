@@ -1,6 +1,7 @@
 require './lib/deck'
 require './lib/guesses'
-require './lib/cards'
+require './lib/card'
+require 'pry'
 
 class Round
   attr_reader :deck, :guesses, :number_correct
@@ -17,8 +18,8 @@ class Round
     deck.cards[current]
   end
 
-  def record_guess(response)
-    guesses << Guess.new(response, current_card)
+  def record_guess(attempt)
+    guesses << Guess.new(attempt, current_card)
     @current += 1
     guesses.last
   end
@@ -46,9 +47,9 @@ class Round
   end
 
   def start
-    puts "Welcome! You're playing with #{deck.cards.count} cards."
+    puts "Welcome! You're playing with #{deck.count} cards."
     deck.cards.each do |card|
-    puts "This is card number #{current + 1} out of #{deck.cards.count}."
+    puts "This is card number #{current + 1} out of #{deck.count}."
     puts "Question: #{card.question}"
     response = gets.chomp.downcase
       record_guess(response)
