@@ -32,7 +32,6 @@ class Round
       deck.cards.push(deck.cards[@current])
     end
     @current +=1
-    binding.pry
   end
 
   def percent_correct
