@@ -8,3 +8,5 @@ cards = CardGenerator.new('./cards.txt').cards
 deck = Deck.new(cards)
 round = Round.new(deck)
 round.start
+
+# round.pick_deck

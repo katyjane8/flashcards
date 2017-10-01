@@ -37,9 +37,16 @@ class Round
   def percent_correct
     (@number_correct.to_f / deck.cards.length * 100).to_i
   end
-  
+
+  # def pick_deck
   # puts "Welcome! Please choose a deck (hogwarts or turing):"
   # selection = gets.chomp
+  #   if selection == "hogwarts"
+  #     cards = CardGenerator.new('./hogwarts.txt')
+  #   else selection == "turing"
+  #     cards = CardGenerator.new('./cards.txt')
+  #   end
+  # end
 
   def start
     "You're playing with #{deck.count} cards."
