@@ -37,9 +37,12 @@ class Round
   def percent_correct
     (@number_correct.to_f / deck.cards.length * 100).to_i
   end
+  
+  # puts "Welcome! Please choose a deck (hogwarts or turing):"
+  # selection = gets.chomp
 
   def start
-    puts "Welcome! You're playing with #{deck.count} cards."
+    "You're playing with #{deck.count} cards."
     puts ("-"*60).cyan
     deck.cards.each do |card|
     puts "This is card number #{current + 1} out of #{deck.count}."

@@ -1,9 +1,7 @@
-require 'pry'
-
 class CardGenerator
   attr_reader :cards
 
-  def initialize(filename=nil)
+  def initialize(filename)
     @cards = []
     runner(filename)
   end
